@@ -1,4 +1,4 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
 /**
  * @author Douglas Chimento

@@ -1,7 +1,7 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
-import com.limebrokerage.reporting.framework.BaseApplication;
-import com.limebrokerage.reporting.framework.options.BaseOptions;
+import com.geekcellent.reporting.framework.BaseApplication;
+import com.geekcellent.reporting.framework.options.BaseOptions;
 import hudson.cli.CLI;
 import hudson.cli.CLIConnectionFactory;
 import org.apache.log4j.Logger;

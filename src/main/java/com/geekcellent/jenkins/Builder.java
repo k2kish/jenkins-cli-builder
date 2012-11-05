@@ -1,4 +1,4 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
 /**
  * This is the interface which drives project creation

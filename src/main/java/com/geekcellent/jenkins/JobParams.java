@@ -1,11 +1,11 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
 import com.lexicalscope.jewel.cli.Option;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-import static com.limebrokerage.jenkins.DefaultProject.escape;
+import static com.geekcellent.jenkins.DefaultProject.escape;
 import static com.google.common.base.CaseFormat.*;
 
 /**

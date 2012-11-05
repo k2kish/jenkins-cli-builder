@@ -1,7 +1,7 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
 import com.lexicalscope.jewel.cli.Option;
-import com.limebrokerage.reporting.framework.options.BaseOptions;
+import com.geekcellent.reporting.framework.options.BaseOptions;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public interface JenkinsManagerOptions extends BaseOptions {
 	@Option(description = "This is a production deployment. If set to false it would cause jobs to be disabled")
 	boolean isProduction();
 
-	@Option(description = "A package path to search for classes that have been annotated with @Jenkins", defaultValue = "com.limebrokerage")
+	@Option(description = "A package path to search for classes that have been annotated with @Jenkins", defaultValue = "com.geekcellent")
 	List<String> getPackages();
 
   }

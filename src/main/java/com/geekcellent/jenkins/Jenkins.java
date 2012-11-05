@@ -1,6 +1,6 @@
-package com.limebrokerage.jenkins;
+package com.geekcellent.jenkins;
 
-import com.limebrokerage.reporting.framework.BaseApplication;
+import com.geekcellent.reporting.framework.BaseApplication;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
