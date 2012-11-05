@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<actions/>
+	<description>{{DESCRIPTION}}</description>
+	<properties>
+		<hudson.queueSorter.PrioritySorterJobProperty>
+			<priority>100</priority>
+		</hudson.queueSorter.PrioritySorterJobProperty>
+		<hudson.model.ParametersDefinitionProperty>
+			<parameterDefinitions>
+				{{PARAMETERS}}
+			</parameterDefinitions>
+		</hudson.model.ParametersDefinitionProperty>
+	</properties>
+	<scm class="hudson.scm.NullSCM"/>
+	<assignedNode>{{POOL}}</assignedNode>
+	<disabled>false</disabled>
+	<concurrentBuild>{{CONCURRENT}}</concurrentBuild>
+
+	<triggers class="vector">
+		<hudson.triggers.TimerTrigger>
+			<spec>{{CRONTAB}}</spec>
+		</hudson.triggers.TimerTrigger>
+	</triggers>
+	<builders>
+		<hudson.tasks.Shell>
+			<command>
+				{{COMMAND}}
+			</command>
+		</hudson.tasks.Shell>
+	</builders>
+	<publishers>
+		<hudson.tasks.Mailer>
+			<recipients>{{EMAIL}}</recipients>
+			<dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+			<sendToIndividuals>false</sendToIndividuals>
+		</hudson.tasks.Mailer>
+		<hudson.plugins.ircbot.IrcPublisher>
+			<targets>
+				{{IRC}}
+			</targets>
+			<strategy>STATECHANGE_ONLY</strategy>
+			<notifyOnBuildStart>true</notifyOnBuildStart>
+			<notifySuspects>false</notifySuspects>
+			<notifyCulprits>false</notifyCulprits>
+			<notifyFixers>false</notifyFixers>
+			<notifyUpstreamCommitters>false</notifyUpstreamCommitters>
+			<buildToChatNotifier
+					class="hudson.plugins.im.build_notify.SummaryOnlyBuildToChatNotifier"/>
+			<matrixMultiplier>ONLY_CONFIGURATIONS</matrixMultiplier>
+			<channels/>
+		</hudson.plugins.ircbot.IrcPublisher>
+	</publishers>
+	<buildWrappers>
+		<hudson.plugins.build__timeout.BuildTimeoutWrapper>
+			<timeoutMinutes>780</timeoutMinutes>
+			<failBuild>false</failBuild>
+			<writingDescription>false</writingDescription>
+			<timeoutPercentage>0</timeoutPercentage>
+			<timeoutType>absolute</timeoutType>
+			<timeoutMinutesElasticDefault>3</timeoutMinutesElasticDefault>
+		</hudson.plugins.build__timeout.BuildTimeoutWrapper>
+		<com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
+			<includes>reporting.jar</includes>
+			<excludes/>
+			<flatten>false</flatten>
+			<includeAntExcludes>false</includeAntExcludes>
+			<hudsonHomeRelative>false</hudsonHomeRelative>
+			<relativeTo>userContent</relativeTo>
+		</com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
+	</buildWrappers>
+</project>

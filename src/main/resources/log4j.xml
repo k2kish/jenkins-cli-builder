@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+    <!-- Appender to send everything warning or greater to stderr -->
+    <appender name="stderr" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="warn" />
+        <param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] [%p] &lt;%F:%L&gt; %m%n" />
+        </layout>
+    </appender>
+
+    <!-- Appender to send everything less than warning to stdout-->
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="debug" />
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] [%p] &lt;%F:%L&gt; %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="info" />
+            <param name="LevelMax" value="info" />
+        </filter>
+    </appender>
+    
+    <root>
+        <priority value="debug"></priority>
+        <appender-ref ref="stderr" />
+        <appender-ref ref="stdout" />
+    </root>
+
+</log4j:configuration>
